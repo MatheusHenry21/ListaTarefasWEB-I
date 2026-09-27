@@ -1,6 +1,6 @@
 from django.db import models
 
-class Taferas(models.Model):
+class Tarefa(models.Model):
     nome = models.CharField(max_length=50)
     concluido = models.BooleanField(default=False)
 
