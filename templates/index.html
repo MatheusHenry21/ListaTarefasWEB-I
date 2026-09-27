@@ -15,6 +15,26 @@
 
         <ul class="lista">
 
+            <form method="get">
+                <label for="filtro">Filtro:</label>
+                <select name="filtro" id="filtro">
+                    <option value="" 
+                        {% if request.GET.filtro == "" %}selected{% endif %}>
+                        Nenhum
+                    </option>
+                        <option value="concluido" 
+                        {% if request.GET.filtro == "concluido" %}selected{% endif %}>
+                        Concluido
+                    </option>
+                    <option value="pendente" 
+                        {% if request.GET.filtro == "pendente" %}selected{% endif %}>
+                        Pendente
+                    </option>
+                </select>
+
+                <button type="submit">Filtrar</button>
+            </form>
+
             {% for tarefa in tarefas %}
             <li class="linha">
                 {{ tarefa }}

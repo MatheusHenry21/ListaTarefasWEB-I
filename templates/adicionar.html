@@ -10,18 +10,15 @@
         <h1>Adicione sua tarefa</h1>
     </header>
 
-    <main>
-        <form action="">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome">
+    <main class="main">
+        <form method="post">
 
-            <label for="concluido">Concluido:</label>
-            <input type="radio" id="concluido" name="situacao" value="concluido">
-            
-            <label for="pendente">Pendente:</label>
-            <input type="radio" id="pendente" name="situacao" value="concluido" checked>
+            {% csrf_token %}
+            {{ form.as_p }}
 
-            <button type="submit">Enviar</button>
+            <button type="submit" class="button-submit">Enviar</button>
+
+            <a href="{% url 'listar' %}">Voltar</a>
         </form>
     </main>
 </body>
