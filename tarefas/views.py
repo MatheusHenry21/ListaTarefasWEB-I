@@ -25,3 +25,9 @@ class ListaTarefas(ListView):
             self.queryset = self.queryset.filter(concluido=False)
 
         return self.queryset.order_by('nome')
+
+class DeletaTarefa(DeleteView):
+    model = Tarefa
+    template_name = "deletar.html"
+    success_url = "/"
+    context_object_name = "tarefa"

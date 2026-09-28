@@ -46,6 +46,8 @@
                 <p>Tarefa pendente.</p>
 
                 {% endif %}
+
+                <a href="{% url 'deletar_tarefa' tarefa.pk %}">Deletar</a>
             </li>
 
             {% empty %}
