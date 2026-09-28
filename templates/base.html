@@ -6,6 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    {% block extra_css %}
+    {% endblock %}
+
     <title>{% block title %}Tarefa{% endblock %}</title>
 </head>
 <body>
@@ -15,6 +19,19 @@
     </h1>
 
     {% block content %}
+        <main class="main"></main>
+        <a href="" class="button-voltar"></a>
+        <button class="button-submit"></button>
+        <p class="p"></p>
+        <form action="" class="form"></form>
+        <a href="" class="button-add"></a>
+        <ul class="lista"></ul>
+        <select name="" id="" class="filtro"></select>
+        <option value="" class="option"></option>
+        <li class="linha"></li>
+        <a href="" class="button-atualizar"></a>
+        <a href="" class="button-deletar"></a>
+        <li class="linha-empty"></li>
     {% endblock %}
 </body>
 </html>

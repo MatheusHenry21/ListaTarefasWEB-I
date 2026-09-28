@@ -1,7 +1,12 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}
     Minhas Tarefas
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% endblock %}
 
 {% block page_title %}
@@ -10,7 +15,7 @@
 
 {% block content %}
     <main class="main">
-        <a href="{% url 'adicionar' %}" class="a-button">Novas tarefas</a>
+        <a href="{% url 'adicionar' %}" class="button-add">Nova tarefa</a>
 
         <ul class="lista">
 
@@ -35,12 +40,12 @@
 
                 </select>
 
-                <button type="submit" class="button-submit">Filtrar</button>
+                <button type="submit" class="button-filtro">Filtrar</button>
             </form>
 
             {% for tarefa in tarefas %}
             <li class="linha">
-                {{ tarefa }}
+                <p class="p">{{ tarefa }}</p>
 
                 {% if tarefa.concluido %}
                 <p class="p">Tarefa concluída.</p>
@@ -50,8 +55,8 @@
 
                 {% endif %}
 
-                <a href="{% url 'deletar_tarefa' tarefa.pk %}" class="a-button">Deletar</a>
-                <a href="{% url 'atualizar_tarefa' tarefa.pk %}" class="a-button">Atualizar</a>
+                <a href="{% url 'deletar_tarefa' tarefa.pk %}" class="button-deletar">Deletar</a>
+                <a href="{% url 'atualizar_tarefa' tarefa.pk %}" class="button-atualizar">Atualizar</a>
             </li>
 
             {% empty %}

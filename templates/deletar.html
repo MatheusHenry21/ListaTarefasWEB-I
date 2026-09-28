@@ -1,7 +1,12 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}
     Exclua Tarefas 
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/deletar.css' %}">
 {% endblock %}
 
 {% block page_title %}
@@ -11,14 +16,13 @@
 {% block content %}
     <main class="main">
         <p class="p">Tem certeza que deseja excluir essa tarefa?</p>
-        <p class="p">{{ tarefa }}</p>
+        <p class="tarefa">{{ tarefa }}</p>
 
         <form method="post" class="form">
             {% csrf_token %}
 
             <button type="submit" class="button-submit">Sim, excluir!</button>
+            <a href="{% url 'listar' %}" class="button-voltar">Voltar</a>
         </form>
-
-        <a href="{% url 'listar' %}" class="a-button">Voltar</a>
     </main>
 {% endblock %}

@@ -1,0 +1,36 @@
+.a-button{
+    background-color: red;
+    text-decoration: none;
+    margin-left: 5px;
+    color: black;
+    padding: 4px;
+    font-size: 13pt;
+    border-radius: 5px;
+    border: 1px solid white;
+}
+
+.button-submit{
+    background-color: rgb(0, 194, 0);
+    padding: 4px;
+    font-size: 12pt;
+    border-radius: 5px;
+    border: 1px solid white;
+    color: black;
+}
+
+.button-voltar{
+    background-color: red;
+    padding: 5px 10px;
+    font-size: 12pt;
+    border-radius: 5px;
+    border: 1px solid white;
+    color: black;
+    text-decoration: none;
+}
+
+input {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 5px;
+}
