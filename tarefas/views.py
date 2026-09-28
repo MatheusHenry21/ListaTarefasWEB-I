@@ -31,3 +31,9 @@ class DeletaTarefa(DeleteView):
     template_name = "deletar.html"
     success_url = "/"
     context_object_name = "tarefa"
+
+class AtualizaTarefa(UpdateView):
+    model = Tarefa
+    template_name = 'atualizar.html'
+    fields = ['nome', 'concluido']
+    success_url = '/'

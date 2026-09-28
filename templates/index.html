@@ -1,38 +1,41 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de taferas</title>
-</head>
-<body>
-    <header class="header">
-        <h1>Minhas tarefas</h1>
-    </header>
+{% extends "base.html" %}
 
+{% block title %}
+    Minhas Tarefas
+{% endblock %}
+
+{% block page_title %}
+    Minhas Tarefas
+{% endblock %}
+
+{% block content %}
     <main class="main">
-        <a href="{% url 'adicionar' %}">Novas tarefas</a>
+        <a href="{% url 'adicionar' %}" class="a-button">Novas tarefas</a>
 
         <ul class="lista">
 
-            <form method="get">
+            <form method="get" class="form">
                 <label for="filtro">Filtro:</label>
-                <select name="filtro" id="filtro">
+                <select name="filtro" id="filtro" class="filtro">
+
                     <option value="" 
-                        {% if request.GET.filtro == "" %}selected{% endif %}>
+                        {% if request.GET.filtro == "" %}selected{% endif %} class="option">
                         Nenhum
                     </option>
-                        <option value="concluido" 
-                        {% if request.GET.filtro == "concluido" %}selected{% endif %}>
+
+                    <option value="concluido" 
+                        {% if request.GET.filtro == "concluido" %}selected{% endif %} class="option">
                         Concluido
                     </option>
+
                     <option value="pendente" 
-                        {% if request.GET.filtro == "pendente" %}selected{% endif %}>
+                        {% if request.GET.filtro == "pendente" %}selected{% endif %} class="option">
                         Pendente
                     </option>
+
                 </select>
 
-                <button type="submit">Filtrar</button>
+                <button type="submit" class="button-submit">Filtrar</button>
             </form>
 
             {% for tarefa in tarefas %}
@@ -40,14 +43,15 @@
                 {{ tarefa }}
 
                 {% if tarefa.concluido %}
-                <p>Tarefa concluída.</p>
+                <p class="p">Tarefa concluída.</p>
 
                 {% else %}
-                <p>Tarefa pendente.</p>
+                <p class="p">Tarefa pendente.</p>
 
                 {% endif %}
 
-                <a href="{% url 'deletar_tarefa' tarefa.pk %}">Deletar</a>
+                <a href="{% url 'deletar_tarefa' tarefa.pk %}" class="a-button">Deletar</a>
+                <a href="{% url 'atualizar_tarefa' tarefa.pk %}" class="a-button">Atualizar</a>
             </li>
 
             {% empty %}
@@ -56,5 +60,4 @@
             {% endfor %}
         </ul>
     </main>
-</body>
-</html>
+{% endblock %}

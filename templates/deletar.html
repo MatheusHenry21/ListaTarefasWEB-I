@@ -1,22 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deletar</title>
-</head>
-<body>
-    <h1>Excluir Tarefa</h1>
+{% extends "base.html" %}
 
-    <p>Tem certeza que deseja excluir essa tarefa?</p>
-    <p>{{ tarefa }}</p>
+{% block title %}
+    Exclua Tarefas 
+{% endblock %}
 
-    <form method="post">
-        {% csrf_token %}
+{% block page_title %}
+    Exclua Tarefa
+{% endblock %}
 
-        <button type="submit">Sim, excluir!</button>
-    </form>
+{% block content %}
+    <main class="main">
+        <p class="p">Tem certeza que deseja excluir essa tarefa?</p>
+        <p class="p">{{ tarefa }}</p>
 
-    <a href="{% url 'listar' %}">Voltar</a>
-</body>
-</html>
+        <form method="post" class="form">
+            {% csrf_token %}
+
+            <button type="submit" class="button-submit">Sim, excluir!</button>
+        </form>
+
+        <a href="{% url 'listar' %}" class="a-button">Voltar</a>
+    </main>
+{% endblock %}

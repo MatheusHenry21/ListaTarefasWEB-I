@@ -6,4 +6,5 @@ urlpatterns = [
     path('', views.ListaTarefas.as_view(), name='listar'),
     path('adicionar/', views.CriaTarefas.as_view(), name='adicionar'),
     path('deletar/<int:pk>/', views.DeletaTarefa.as_view(), name='deletar_tarefa'),
+    path('atualizar/<int:pk>/', views.AtualizaTarefa.as_view(), name='atualizar_tarefa'),
 ]
